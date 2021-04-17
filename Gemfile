@@ -67,3 +67,7 @@ gem 'devise'
 # 「refile」「refile-mini_magick」をインストール-modelファイルの作成
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
+
+# 「Bootstrap」「jquery」をインストール-Bootstrapを使うために必要な記述を追加する
+gem 'bootstrap', '~> 4.5'
+gem 'jquery-rails'
