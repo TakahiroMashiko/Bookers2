@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
-  resources :users
-  resources :books
-  root 'homes#top'
-  devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations'
-  }
+  devise_for :users
+  root 'books#index'
+  resources :books, only: [:new, :create, :index, :show, :destroy]
 
   # アプリケーションのトップ画面を「/」で表示させる
   get '/', to: 'homes#index'
