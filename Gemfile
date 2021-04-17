@@ -61,5 +61,9 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# deviseをインストール-Gemfileに必要なGemを記載
+# 「devise」をインストール-Gemfileに必要なGemを記載
 gem 'devise'
+
+# 「refile」「refile-mini_magick」をインストール-modelファイルの作成
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
