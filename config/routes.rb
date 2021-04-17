@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  get 'users/show'
-  get 'books/new'
-  get 'books/create'
-  get 'books/index'
-  get 'books/show'
-  get 'books/destroy'
-  get 'homes/top'
+  resources :users
+  resources :books
   devise_for :users
+
+  # アプリケーションのトップ画面を「/」で表示させる
+  get '/', to: 'homes#index'
+  # ルートパス
+  root :to => 'homes#index'
 end
