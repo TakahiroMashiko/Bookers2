@@ -4,6 +4,9 @@ class UsersController < ApplicationController
     # @book = @user.post_images.page(params[:page]).reverse_order
   end
 
+  def index
+  end
+
   def edit
     @user = User.find(params[:id])
   end
@@ -15,8 +18,9 @@ class UsersController < ApplicationController
 
   end
 
-  def destroy
-  end
+  ## 使わなかったら削除する
+  # def destroy
+  # end
 
   private
 
