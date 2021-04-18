@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  # get 'home/about' => 'homes#about'
   resource :home, :except => [:index, :create, :new, :edit, :show, :update, :destroy] do
     collection do
     get 'about'
