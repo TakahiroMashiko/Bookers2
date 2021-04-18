@@ -15,13 +15,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(user_params)
     redirect_to user_path(@user.id)
-
   end
 
-  ## 使わなかったら削除する
-  # def destroy
-  # end
-
+# ストロングパラメータを設定
   private
 
   def user_params
