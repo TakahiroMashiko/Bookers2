@@ -7,6 +7,9 @@ class BooksController < ApplicationController
   end
 
   def create
+    book = book.new(book_params)
+    book.save
+    redirect_to user_path(resource)
   end
 
   def show
@@ -20,4 +23,11 @@ class BooksController < ApplicationController
 
   def destroy
   end
+
+  private
+  # ストロングパラメータ
+  def book_params
+    params.require(:book).permit(:title, :body)
+  end
+
 end
