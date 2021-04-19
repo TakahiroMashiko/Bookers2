@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     get 'about'
     end
   end
-  resources :users, only: [:index, :show, :index, :edit, :update]
+  resources :users, only: [:index, :edit, :show, :update]
   resources :books
   # アプリケーションのトップ画面を「/」で表示させる
   get '/', to: 'homes#top'
