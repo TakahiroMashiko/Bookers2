@@ -1,6 +1,7 @@
 <div class="profile-container">
+  <!-- < %= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %> -->
   <h3 class="profile-name"><%= @user.name %></h3>
-  <%= image_tag('sample-author1.jpg') %>
+  <h3 class="profile-name"><%= @user.introduction %></h3>
   <% if @user.id == current_user.id %>
     <p><%= link_to "edit profile", edit_user_path(@user) %></p>
   <% end %>
