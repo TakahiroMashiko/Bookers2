@@ -7,5 +7,5 @@ class User < ApplicationRecord
   # UserモデルにBookモデルを関連付ける(アソシエーション)
   has_many :books, dependent: :destroy
 
-  attachment :image
+  attachment :profile_image
 end
