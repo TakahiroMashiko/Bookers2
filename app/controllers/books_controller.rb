@@ -9,8 +9,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = book.new(book_params)
-    @book.save
+    @book = Book.new(book_params)
     # 投稿処理の成功後、サクセスメッセージを表示
     if @book.save
       redirect_to book_path(@book), notice: "You have created book successfully."
