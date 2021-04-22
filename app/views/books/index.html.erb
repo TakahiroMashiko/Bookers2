@@ -7,6 +7,7 @@
 <h1>User info</h1>
 <!--form_with部分-->
 <%= form_with model: @user, local:true do |f| %>
+  <!--### !!! メンターへ質問、viewは表示されエラーが出ないが、fallback: "no_image.jpg"が表示されてしまう !!! ###-->
   <div class="img"><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></div>
   <label for="Name">Name</label>
   <%= current_user.name %>
@@ -14,9 +15,9 @@
   <%= current_user.introduction %>
 <% end %>
 
-  <% if @book.user == current_user.id %>
+<% if @book.user == current_user.id %>
   <p><%= link_to "edit", edit_user_path(@user) %></p>
-  <% end %>
+<% end %>
 
 <!-- bookの投稿フォーム - 他ページのテンプレート（New book）-->
 <h2>New book</h2>
