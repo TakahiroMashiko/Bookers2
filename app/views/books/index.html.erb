@@ -7,18 +7,16 @@
 <h1>User info</h1>
 <!--form_with部分-->
 <%= form_with model: @user, local:true do |f| %>
-  <label for="inputName">Name</label>
-  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"Name" %>
-  <!--エラーが返るため一時的にコメントアウト-->
-  <!--< %= attachment_image_tag profile_image.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>-->
-  <label for="inputImage">Image</label>
-  <!--エラーが返るため一時的にコメントアウト-->
-  <!--< %= f.attachment_field :profile_image %>-->
-  <label for="inputIntroduction">Introduction</label>
-  <%= f.text_area :introduction, placeholder:"Introduction" %>
-
-  <%= f.submit 'Update User' %>
+  <div class="img"><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></div>
+  <label for="Name">Name</label>
+  <%= current_user.name %>
+  <label for="Introduction">Introduction</label>
+  <%= current_user.introduction %>
 <% end %>
+
+  <% if @book.user == current_user.id %>
+  <p><%= link_to "edit", edit_user_path(@user) %></p>
+  <% end %>
 
 <!-- bookの投稿フォーム - 他ページのテンプレート（New book）-->
 <h2>New book</h2>
