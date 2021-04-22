@@ -50,10 +50,11 @@
 <table>
   <tbody>
     <td>
-      <!--プロフィール画像を表示-->
-      <!--< %= link_to user_path(profile_image.id) do %>-->
+      <!--< %= link_to user_path(profile_image_id) do %>-->
       <!--  < %= attachment_image_tag profile_image, :image %>-->
       <!--< % end %>-->
+
+      <%= @book.user.profile_image %>
     </td>
 
     <td>
