@@ -3,17 +3,19 @@
   <p><%= flash[:notice] %></p>
 <% end %>
 
-<!-- bookのindexページの左側の作成(User info) - 他ページのテンプレート（User info） -->
+<!--bookのindexページの左側の作成(User info) - 他ページのテンプレート（User info） -->
 <h1>User info</h1>
-<!-- form_with部分 -->
+<!--form_with部分-->
 <%= form_with model: @user, local:true do |f| %>
   <label for="inputName">Name</label>
   <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"Name" %>
+  <!--エラーが返るため一時的にコメントアウト-->
   <!--< %= attachment_image_tag profile_image.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>-->
   <label for="inputImage">Image</label>
+  <!--エラーが返るため一時的にコメントアウト-->
   <!--< %= f.attachment_field :profile_image %>-->
   <label for="inputIntroduction">Introduction</label>
-  <!--< %= f.text_area :introduction, placeholder:"Introduction" %>-->
+  <%= f.text_area :introduction, placeholder:"Introduction" %>
 
   <%= f.submit 'Update User' %>
 <% end %>
