@@ -3,6 +3,7 @@
   <p><%= flash[:notice] %></p>
 <% end %>
 
+<!-- 部分テンプレート化する - ここから -->
 <!--bookのindexページの左側の作成(User info) - 他ページのテンプレート（User info） -->
 <h1>User info</h1>
 <!--form_with部分-->
@@ -29,6 +30,7 @@
     <%= message %>
   <% end %>
 <% end %>
+<!-- 部分テンプレート化する - ここまで-->
 
 <!-- form_with部分 -->
 <%= form_with model:@book, local:true do |f| %>
@@ -50,19 +52,15 @@
 <table>
   <tbody>
     <td>
-      <!--< %= link_to user_path(profile_image_id) do %>-->
-      <!--  < %= attachment_image_tag profile_image, :image %>-->
-      <!--< % end %>-->
-
-      <%= @book.user.profile_image %>
+      <%= attachment_image_tag @book.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg" %>
     </td>
 
     <td>
-      <%= @book.user.name %>
+      <%= link_to @book.user.name, books_path(@book.id) %>
     </td>
 
     <td>
-      <%= @book.title %>
+      <%= link_to @book.title, book_path(@book.id) %>
     </td>
 
     <td>
