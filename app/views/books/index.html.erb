@@ -62,7 +62,7 @@
     <tr>
     <!--### !!! メンターへ質問、viewは表示されエラーが出ないが、fallback: "no_image.jpg"が表示されてしまう !!! ###-->
     <td>
-      <!-- link_to @book.user.name, books_path(@book.id),  -->
+      <!--link_to @book.user.name, book_path(@book.id), -->
       <div class="img"><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></div>
     </td>
     <td>
