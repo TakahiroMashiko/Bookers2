@@ -23,15 +23,16 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @newbook = Book.new
   end
 
   def edit
     @book = Book.find(params[:id])
+    @newbook = Book.new
   end
-
   def update
     @book = Book.find(params[:id])
-    @book.update(book_params)
+    @book.user_id = current_user.id
     # 更新処理の成功後、サクセスメッセージを表示
     if @book.update(book_params)
       redirect_to book_path(@book), notice: "You have updated book successfully."

@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:index, :edit, :show, :update]
   resources :books
-  # 投稿フォーム
-  post 'books' => 'books#create'
   # アプリケーションのトップ画面を「/」で表示させる
   get '/', to: 'homes#top'
   # ルートパス
