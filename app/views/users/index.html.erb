@@ -1,10 +1,47 @@
-<h1>Users</h1>
-<!--< % @users.each do |user| %>-->
-  <p>Name</p>
-  <span>
-    <!-- < %=link_to user.name, user_path(user.id) %>-->
-  </span>
-  <p>Image</p>
-  <%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'jpeg' %>
+<!--bookのindexページの左側の作成(User info) - 他ページのテンプレート（User info） -->
+<h2>User info</h2>
+  <%= attachment_image_tag current_user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg" %>
+  <label for="Name">Name</label>
+  <%= current_user.name %>
+  <label for="Introduction">Introduction</label>
+  <%= current_user.introduction %>
+  <%= link_to "edit", edit_user_path(current_user) %>
 
-<!-- < % end %>-->
+<!-- bookの投稿フォーム - 他ページのテンプレート（New book）-->
+<h2>New book</h2>
+
+<!-- form_with部分 -->
+<%= form_with model:@book, local:true do |f| %>
+
+<h4>Title</h4>
+<%= f.text_field :title %>
+
+<h4>Opinion</h4>
+<%= f.text_area :body %>
+
+<div class="create-book">
+<%= f.submit 'Create Book' %>
+</div>
+
+<% end %>
+
+<h2>Users</h2>
+<tbody>
+    <% @users.each do |user| %>
+    <tr>
+    <td>
+      <%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg" %>
+    </td>
+    <td>
+      <%= user.name %>
+    </td>
+    <td>
+      <%= user.introduction %>
+    </td>
+    <td>
+      <%= link_to "Show", user_path(user.id) %>
+    </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
