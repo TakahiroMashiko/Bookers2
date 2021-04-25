@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <header>
     <%= link_to "Bookers", root_path %>
     <% if user_signed_in? %>
       <li>
@@ -40,6 +41,11 @@
     <% end %>
 
     <%= yield %>
+    </header>
+
+    <main>
+    </main>
+
     <footer>
       <div class="container mt-5">
       	<div class="row">
