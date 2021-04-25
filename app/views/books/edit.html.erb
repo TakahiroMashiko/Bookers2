@@ -1,3 +1,12 @@
+<!-- 投稿の更新が失敗したとき、フラッシュメッセージを表示 -->
+<!-- １個のエラーだったら、「1 error prohibited this obj from being saved:」を、２個のエラーだったら「2 errors prohibited this obj from being saved:」を表示（else文で行けそう） -->
+<% if @book.errors.any? %>
+  <%= @book.errors.count %> errors prohibited this obj from being saved:
+  <% @book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
 <h1>Editing Book</h1>
 <!-- form_with部分 -->
 <%= form_with model: @book, local:true do |f| %>
