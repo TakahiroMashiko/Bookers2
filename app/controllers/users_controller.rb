@@ -15,8 +15,12 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(current_user.id)
+    # 更新処理の成功後、サクセスメッセージを表示
+    if @user.update(user_params)
+      redirect_to user_path(current_user.id), notice: "You have updated user successfully."
+    else
+      render 'edit'
+    end
   end
 
 # ストロングパラメータを設定
