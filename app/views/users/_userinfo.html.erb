@@ -1,0 +1,9 @@
+<h2>User info</h2>
+  <%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg" %>
+  <label for="Name">Name</label>
+  <%= current_user.name %>
+  <label for="Introduction">Introduction</label>
+  <%= current_user.introduction %>
+  <% if user.id == current_user.id %>
+    <%= link_to "edit", edit_user_path(user) %>
+  <% end %>
