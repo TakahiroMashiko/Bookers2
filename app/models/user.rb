@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
 
   # バリデーションの実装-ユーザのプロフィール更新が失敗したとき
-  validates :name, presence: true , length: { minimum: 2, maximum: 20 }
+  validates :name, length: { minimum: 2, maximum: 20 } , uniqueness: true
   validates :introduction, length: { maximum: 50 }
 
   attachment :profile_image
