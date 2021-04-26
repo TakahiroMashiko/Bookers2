@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  # ユーザがログインしていない場合、ログイン画面だけが表示される
+  before_action :authenticate_user!
   def show
     @user = User.find(params[:id])
     @book = Book.new
@@ -11,6 +13,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if @user == current_user
+      render "edit"
+    else
+      redirect_to current_user
+    end
   end
 
   def update
@@ -23,7 +30,7 @@ class UsersController < ApplicationController
     end
   end
 
-# ストロングパラメータを設定
+  # ストロングパラメータ
   private
 
   def user_params
