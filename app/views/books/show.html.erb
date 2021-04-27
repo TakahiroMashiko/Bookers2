@@ -1,22 +1,9 @@
-<!-- 新規投稿処理の成功後、サクセスメッセージを表示、テキストの色指定なし（黒） -->
+<!-- サクセスメッセージを表示 -->
 <% if flash[:notice] %>
   <p><%= flash[:notice] %></p>
 <% end %>
 
-<!--< %= render 'users/userinfo',user: @User %>-->
-<!-- 部分テンプレート化する - ここから -->
-<!--bookのindexページの左側の作成(User info) - 他ページのテンプレート（User info） -->
-<h2>User info</h2>
-  <%= attachment_image_tag @book.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg" %>
-  <label for="Name">Name</label>
-  <%= @book.user.name %>
-  <label for="Introduction">Introduction</label>
-  <%= @book.user.introduction %>
-  <% if @book.user.id == current_user.id %>
-    <p><%= link_to "edit", edit_user_path(current_user) %></p>
-  <% end %>
-
-<%= render 'books/newbook', books: @books %>
+<%= render 'users/userinfo',user: @user, book: @book %>
 
 <h2>Book detail</h2>
 
