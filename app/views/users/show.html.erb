@@ -1,35 +1,9 @@
-<!--新規投稿処理の成功後、サクセスメッセージを表示、テキストの色指定なし（黒）-->
+<!-- サクセスメッセージを表示 -->
 <% if flash[:notice] %>
   <p><%= flash[:notice] %></p>
 <% end %>
 
-<h2>User info</h2>
-  <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg" %>
-  <label for="Name">Name</label>
-  <%= @user.name %>
-  <label for="Introduction">Introduction</label>
-  <%= @user.introduction %>
-  <% if @user.id == current_user.id %>
-    <%= link_to "edit", edit_user_path(@user) %>
-  <% end %>
-
-<!-- bookの投稿フォーム - 他ページのテンプレート（New book）-->
-<h2>New book</h2>
-
-<!-- form_with部分 -->
-<%= form_with model:@book, local:true do |f| %>
-
-<h4>Title</h4>
-<%= f.text_field :title %>
-
-<h4>Opinion</h4>
-<%= f.text_area :body %>
-
-<div class="create-book">
-<%= f.submit 'Create Book' %>
-</div>
-
-<% end %>
+<%= render 'users/userinfo',user: @user, book: @book %>
 
 <h2>Books</h2>
 
