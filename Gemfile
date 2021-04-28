@@ -71,3 +71,6 @@ gem "refile-mini_magick"
 # 「Bootstrap」「jquery」をインストール-Bootstrapを使うために必要な記述を追加する
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
+
+# 「font-awesome」をインストール
+gem 'font-awesome-sass', '~> 5.13'
