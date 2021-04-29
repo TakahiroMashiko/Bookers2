@@ -1,7 +1,9 @@
 <!-- サクセスメッセージを表示 -->
+<p>
 <% if flash[:notice] %>
-  <p><%= flash[:notice] %></p>
+  <%= flash[:notice] %>
 <% end %>
+</p>
 
 <div class="container px-5 px-sm-0">
   <div class="row">
