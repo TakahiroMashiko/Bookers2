@@ -54,7 +54,7 @@ class BooksController < ApplicationController
     @book.destroy
     # 削除処理の成功後、サクセスメッセージを表示
     if @book.destroy
-      redirect_to books_path(@book), notice: "Book was successfully destroyed."
+      redirect_to '/books', notice: "Book was successfully destroyed."
     end
   end
 
