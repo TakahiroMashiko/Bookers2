@@ -74,3 +74,6 @@ gem 'jquery-rails'
 
 # 「font-awesome」をインストール
 gem 'font-awesome-sass', '~> 5.13'
+
+# Install whenever
+gem 'whenever', require: false
